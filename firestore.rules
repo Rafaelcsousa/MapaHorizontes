@@ -1,0 +1,14 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Permite leitura e escrita nas coleções principais do Mapa Estratégico
+    match /projetos/{projetoId} {
+      allow read, write: if true;
+    }
+    
+    match /dialogos/{dialogoId} {
+      allow read, write: if true;
+    }
+  }
+}
